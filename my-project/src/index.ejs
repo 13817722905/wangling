@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>my-project</title>
+    <% if (htmlWebpackPlugin.options.nodeModules) { %>
+      <!-- Add `node_modules/` to global paths so `require` works properly in development -->
+      <script>
+        require('module').globalPaths.push('<%= htmlWebpackPlugin.options.nodeModules.replace(/\\/g, '\\\\') %>')
+      </script>
+    <% } %>
+    
+  </head>
+  <body>
+    <div id="app"></div>
+    <canvas id="gameCanvas" width="321" height="480"></canvas>
+    <script src="../static/spine/spine-widget.js"></script>
+    <script src="../static/CCBoot.js"></script>
+    
+    <!-- Set `__static` path to static files in production -->
+    <script>
+      cc.game.onStart = function(){
+        console.log("走到了值")
+      // if(!cc.sys.isNative && document.getElementById("cocosLoading")) //If referenced loading.js, please remove it
+      //     document.body.removeChild(document.getElementById("cocosLoading"));
+
+      // var designSize = cc.size(480, 800);
+      // var screenSize = cc.view.getFrameSize();
+
+      // if(!cc.sys.isNative && screenSize.height < 800){
+      //     designSize = cc.size(320, 480);
+      //     cc.loader.resPath = "res/Normal";
+      // }else{
+      //     cc.loader.resPath = "res/HD";
+      // }
+      // cc.view.setDesignResolutionSize(designSize.width, designSize.height, cc.ResolutionPolicy.SHOW_ALL);
+
+      // //load resources
+      // cc.LoaderScene.preload(g_resources, function () {
+      //     cc.director.runScene(new MyScene());
+      // }, this);
+  };
+  cc.game.run();
+  
+ 
+      if (process.env.NODE_ENV !== 'development') window.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
+    </script>
+
+    <!-- webpack builds are automatically injected -->
+  </body>
+</html>
