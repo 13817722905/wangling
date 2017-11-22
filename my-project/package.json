@@ -58,6 +58,7 @@
   "dependencies": {
     "axios": "^0.16.1",
     "electron-download-tf": "^4.3.4",
+    "element-ui": "^2.0.5",
     "vue": "^2.5.8",
     "vue-electron": "^1.0.6",
     "vue-router": "^2.5.3",

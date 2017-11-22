@@ -1,7 +1,15 @@
 
 <template>
   <div id="wrapper" style="margin-bottom: 20px; width: 100%; height: 250px;" :class="type" :data-json="json" :data-atlas="atlas" :data-animation="animation" data-fit-to-canvas="false" :data-scale="scale" data-x="200" data-y="10">
-  </div>
+   
+    <!-- <div style="display: flex; margin-top: 20px; height: 100px;"> -->
+      <!-- <transition name="el-fade-in-linear">
+        <div v-show="show" class="transition-box">.el-fade-in-linear</div>
+      </transition>
+      <transition name="el-fade-in">
+        <div v-show="show" class="transition-box">.el-fade-in</div>
+      </transition> -->
+  </div>  
 </template>
 
 <script>
