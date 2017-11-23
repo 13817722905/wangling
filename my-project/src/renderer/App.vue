@@ -15,23 +15,22 @@
     },
     methods: {
       openFile () {
-        const {shell} = require('electron')
-        const dialog = shell.dialog
-        exports.openDialog = function (defaultpath, callback) {
-          dialog.showOpenDialog({
-            defaultPath: defaultpath,
-            properties: [
-              'openFile'
-            ],
-            filters: [
-              { name: 'zby', extensions: ['json'] }
-            ]
-          },
-          function (res) {
-          // 我这个是打开单个文件的
-            callback(res[0])
-          })
-        }
+        const {dialog} = require('electron').remote
+        // const dialog = shell.dialog
+        console.log(dialog)
+        dialog.showOpenDialog({
+          // defaultPath: defaultpath,
+          properties: [
+            'openFile'
+          ],
+          filters: [
+            // { name: 'zby', extensions: ['json'] }
+          ]
+        },
+        function (res) {
+        // 我这个是打开单个文件的
+          // callback(res[0])
+        })
       }
     }
   }
